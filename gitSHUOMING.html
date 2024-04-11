@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+git status ：查看仓库状态
+git init：创建一个空仓库，或者重新初始化一个已有仓库
+git add：把文件添加到可提交列表（临时缓冲区）
+git commit：提交改动（增删改）至仓库
+git log：打印提交日志
+git branch：查看、添加、删除分支
+git checkout：切换分支、标签
+git merge：合并分支
+git tag：新建、查看标签
+
+
+
+
+新建栏目
+$ cd ceshi0328
+$ mkdir 0428ceshi
+$ touch 0428ceshi/.gitkeep
+$ git add 0428ceshi
+$ git commit -m "0428_1"
+$ git push origin 0328fenzhi
+
+
+tui
+$ git status
+$ git add .
+$ git commit -m "0408_2"
+$ git push origin 0328fenzhi
+
+la
+$ git pull origin 0328fenzhi
+
+新建仓｛远程先新建个同名仓｝
+$ cd ..
+$ mkdir 20240408
+$ cd 20240408
+$ git remote add origin https://github.com/szp85/20240408.git
+$ git checkout -b 20240408
+$ git add .
+$ git commit -m "0408_4"
+$ git push -u origin 20240408
+
+
+$ git remote set-url origin git@github.com:szp85/20240408.git
+$ git remote -v
+origin  https://github.com/szp85/20240408.git (fetch)
+origin  https://github.com/szp85/20240408.git (push)
+
+git remote add origin https://github.com/szp85/20240408.git与git remote set-url origin git@github.com:szp85/20240408.git 的区别
+1. git remote add origin URL
+用途：当您的本地Git仓库还没有配置远程仓库（即远程名称，如origin）时，使用此命令添加一个新的远程仓库。
+场景：通常在您初次设置本地仓库并想要关联一个远程仓库时使用。例如，当您本地初始化了一个新的Git仓库，然后想要将其与远程GitHub仓库关联起来以便推送和拉取更改。
+命令格式：git remote add <远程仓库名称> <仓库URL>
+    示例：git remote add origin https://github.com/szp85/20240408.git
+    这个命令创建了一个名为origin的远程仓库配置，URL指向https://github.com/szp85/20240408.git。
+    2. git remote set-url origin URL
+    用途：用于更改已存在的远程仓库的URL。如果您需要更新或更正已配置的远程仓库的URL，就会使用此命令。
+    场景：如果您更改了远程GitHub仓库的名称、迁移到了另一个账户，或者想要从HTTPS切换到SSH（或反之），则需要更新您本地仓库的远程URL以反映这些更改。
+    命令格式：git remote set-url <远程仓库名称> <新的仓库URL>
+    示例：git remote set-url origin git@github.com:szp85/20240408.git
+    这个命令将名为origin的远程仓库的URL更新为git@github.com:szp85/20240408.git。
+    HTTPS 与 SSH URL 的区别
+    HTTPS：https://github.com/szp85/20240408.git 使用HTTPS URL，这种方式在克隆、拉取、推送时需要GitHub的用户名和密码（或个人访问令牌）进行认证。
+    SSH：git@github.com:szp85/20240408.git 使用SSH URL，这种方式需要在GitHub和本地计算机之间设置SSH密钥。一旦设置，您可以免密码推送、拉取等操作，通常被认为更方便和安全。
+    总结来说，git remote add用于首次添加远程仓库，而git remote set-url用于更改已有远程仓库的URL。HTTPS和SSH是两种不同的认证方式，选择哪种取决于个人偏好和具体需求。
+
+
+
+
+</body>
+</html>
